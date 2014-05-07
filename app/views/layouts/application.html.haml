@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title E-Pizza
+    = favicon_link_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolink-track'  => true, async: true
+    = javascript_include_tag 'application',               'data-turbolinks-track' => true, async: true
+    = csrf_meta_tags
+  %body
+	
+	= yield
