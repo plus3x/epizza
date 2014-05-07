@@ -8,6 +8,7 @@ gem 'haml'
 gem 'dynamic_form'
 gem 'sass-rails', '~> 4.0.3'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'bootstrap-sass'
 
 gem 'pg', group: :production
 
