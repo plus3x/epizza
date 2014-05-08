@@ -21,9 +21,7 @@ class OrdersController < ApplicationController
 
   # POST /orders
   def create
-    @order = Order.new(order_params)
-
-    if @order.save
+    if ( @order = Order.new(order_params) ).save
       redirect_to @order, notice: 'Order was successfully created.'
     else
       render :new
@@ -46,12 +44,10 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def order_params
       params.require(:order).permit(:name, :email, :phone)
     end
