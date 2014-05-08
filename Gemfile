@@ -9,13 +9,13 @@ gem 'dynamic_form'
 gem 'sass-rails', '~> 4.0.3'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem 'turbolinks'
 
 gem 'pg', group: :production
 
 group :production, :development do
   gem 'uglifier', '>= 1.3.0'
-  gem 'turbolinks'
-  gem 'jquery-rails'
 end
 
 group :development do
