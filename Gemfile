@@ -4,7 +4,7 @@ ruby '2.1.1'
 gem 'rails', '4.1.0'
 gem 'bcrypt-ruby'
 
-gem 'haml'
+gem 'haml-rails'
 gem 'dynamic_form'
 gem 'sass-rails', '~> 4.0.3'
 gem 'coffee-rails', '~> 4.0.0'
