@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'orders#new', as: :main
 
   resources :orders
+  resources :pizzas
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

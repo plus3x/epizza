@@ -1,0 +1,7 @@
+= form_for @pizza do |f|
+  = f.error_messages
+  .field
+    = f.label :type
+    = f.text_field :type
+  .actions
+    = f.submit 'Save'

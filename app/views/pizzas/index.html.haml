@@ -1,0 +1,19 @@
+%h1 Listing pizzas
+
+%table
+  %tr
+    %th Type
+    %th
+    %th
+    %th
+
+  - @pizzas.each do |pizza|
+    %tr
+      %td= pizza.type
+      %td= link_to 'Show', pizza
+      %td= link_to 'Edit', edit_pizza_path(pizza)
+      %td= link_to 'Destroy', pizza, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Pizza', new_pizza_path
