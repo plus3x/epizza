@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.2'
 
-gem 'rails', '4.1.0'
-gem 'bcrypt-ruby'
+gem 'rails', '~> 4.1.1'
+gem 'bcrypt'
 
 gem 'haml-rails'
 gem 'dynamic_form'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails',   '~> 4.0.3'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
@@ -27,12 +27,14 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'pry-rails'
-  gem 'rspec-rails', '3.0.0.beta2'
+  gem 'rspec-rails', '~> 3.0.0.rc1'
+  gem 'rspec-activemodel-mocks'
 end
 
 group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'shoulda'
+  gem 'minitest'
+  gem 'shoulda-matchers', '2.5.0'
   gem 'capybara'
 end
