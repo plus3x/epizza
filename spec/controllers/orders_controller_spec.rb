@@ -23,7 +23,7 @@ describe OrdersController do
   # This should return the minimal set of attributes required to create a valid
   # Order. As you add validations to Order, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "name" => "MyString" } }
+  let(:valid_attributes) { { name: 'MyString' } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -34,14 +34,14 @@ describe OrdersController do
     it "assigns all orders as @orders" do
       order = Order.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:orders)).to eq([order])
+      expect(assigns(:orders)).to eq Order.all
     end
   end
 
   describe "GET show" do
     it "assigns the requested order as @order" do
       order = Order.create! valid_attributes
-      get :show, {:id => order.to_param}, valid_session
+      get :show, {id: order.to_param}, valid_session
       expect(assigns(:order)).to eq(order)
     end
   end
@@ -56,7 +56,7 @@ describe OrdersController do
   describe "GET edit" do
     it "assigns the requested order as @order" do
       order = Order.create! valid_attributes
-      get :edit, {:id => order.to_param}, valid_session
+      get :edit, {id: order.to_param}, valid_session
       expect(assigns(:order)).to eq(order)
     end
   end
@@ -65,18 +65,18 @@ describe OrdersController do
     describe "with valid params" do
       it "creates a new Order" do
         expect {
-          post :create, {:order => valid_attributes}, valid_session
+          post :create, {order: valid_attributes}, valid_session
         }.to change(Order, :count).by(1)
       end
 
       it "assigns a newly created order as @order" do
-        post :create, {:order => valid_attributes}, valid_session
+        post :create, {order: valid_attributes}, valid_session
         expect(assigns(:order)).to be_a(Order)
         expect(assigns(:order)).to be_persisted
       end
 
       it "redirects to the created order" do
-        post :create, {:order => valid_attributes}, valid_session
+        post :create, {order: valid_attributes}, valid_session
         expect(response).to redirect_to(Order.last)
       end
     end
@@ -85,15 +85,15 @@ describe OrdersController do
       it "assigns a newly created but unsaved order as @order" do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Order).to receive(:save).and_return(false)
-        post :create, {:order => { "name" => "invalid value" }}, valid_session
+        post :create, {order: { name: 'invalid value' }}, valid_session
         expect(assigns(:order)).to be_a_new(Order)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Order).to receive(:save).and_return(false)
-        post :create, {:order => { "name" => "invalid value" }}, valid_session
-        expect(response).to render_template("new")
+        post :create, {order: { name: 'invalid value' }}, valid_session
+        expect(response).to render_template :new
       end
     end
   end
@@ -106,19 +106,19 @@ describe OrdersController do
         # specifies that the Order created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        expect_any_instance_of(Order).to receive(:update).with({ "name" => "MyString" })
-        put :update, {:id => order.to_param, :order => { "name" => "MyString" }}, valid_session
+        expect_any_instance_of(Order).to receive(:update).with({ name: 'MyString' })
+        put :update, {id: order.to_param, order: { name: 'MyString' }}, valid_session
       end
 
       it "assigns the requested order as @order" do
         order = Order.create! valid_attributes
-        put :update, {:id => order.to_param, :order => valid_attributes}, valid_session
+        put :update, {id: order.to_param, order: valid_attributes}, valid_session
         expect(assigns(:order)).to eq(order)
       end
 
       it "redirects to the order" do
         order = Order.create! valid_attributes
-        put :update, {:id => order.to_param, :order => valid_attributes}, valid_session
+        put :update, {id: order.to_param, order: valid_attributes}, valid_session
         expect(response).to redirect_to(order)
       end
     end
@@ -128,7 +128,7 @@ describe OrdersController do
         order = Order.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Order).to receive(:save).and_return(false)
-        put :update, {:id => order.to_param, :order => { "name" => "invalid value" }}, valid_session
+        put :update, {id: order.to_param, order: { name: 'invalid value' }}, valid_session
         expect(assigns(:order)).to eq(order)
       end
 
@@ -136,8 +136,8 @@ describe OrdersController do
         order = Order.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Order).to receive(:save).and_return(false)
-        put :update, {:id => order.to_param, :order => { "name" => "invalid value" }}, valid_session
-        expect(response).to render_template("edit")
+        put :update, {id: order.to_param, order: { name: 'invalid value' }}, valid_session
+        expect(response).to render_template :edit
       end
     end
   end
@@ -146,13 +146,13 @@ describe OrdersController do
     it "destroys the requested order" do
       order = Order.create! valid_attributes
       expect {
-        delete :destroy, {:id => order.to_param}, valid_session
+        delete :destroy, {id: order.to_param}, valid_session
       }.to change(Order, :count).by(-1)
     end
 
     it "redirects to the orders list" do
       order = Order.create! valid_attributes
-      delete :destroy, {:id => order.to_param}, valid_session
+      delete :destroy, {id: order.to_param}, valid_session
       expect(response).to redirect_to(orders_url)
     end
   end
