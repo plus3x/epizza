@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508211618) do
+ActiveRecord::Schema.define(version: 20140509235932) do
 
   create_table "orders", force: true do |t|
     t.string   "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20140508211618) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "orders_pizzas", id: false, force: true do |t|
+    t.integer "order_id"
+    t.integer "pizza_id"
+  end
+
+  add_index "orders_pizzas", ["order_id"], name: "index_orders_pizzas_on_order_id"
+  add_index "orders_pizzas", ["pizza_id", "order_id"], name: "index_orders_pizzas_on_pizza_id_and_order_id"
+  add_index "orders_pizzas", ["pizza_id"], name: "index_orders_pizzas_on_pizza_id"
 
   create_table "pizzas", force: true do |t|
     t.string   "type"
