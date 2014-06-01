@@ -9,5 +9,17 @@
   .field
     = f.label :phone
     = f.text_field :phone
+  #pizzas
+    - i = 1
+    = f.fields_for :pizzas do |fp|
+      .pizza{id:"pizza_#{i}"}
+        %h4= "Pizza ##{i}"
+        .field
+          = fp.label :type
+          = fp.text_field :type
+      - i += 1
+  = link_to 'Add pizza', '', onclick: 'add_nested("pizza")', remote: true
+  |
+  = link_to 'Remove last pizza', '', onclick: 'remove_nested("pizza")', remote: true
   .actions
     = f.submit 'Save'
