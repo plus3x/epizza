@@ -5,5 +5,6 @@ describe Pizza do
 
   it { is_expected.to be_valid }
 
-  it { is_expected.to respond_to :type }
+  it { is_expected.to have_db_column(:type).of_type(:string ) }
+  it { is_expected.to have_db_column(:num ).of_type(:integer) }
 end

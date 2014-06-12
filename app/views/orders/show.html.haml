@@ -7,6 +7,13 @@
 %p
   %b Phone:
   = @order.phone
+%p
+  %b Pizzas:
+  - @order.pizzas.each do |pizza|
+    %br
+    = debug pizza
+    = pizza.num
+    = pizza.type
 
 = link_to 'Edit', edit_order_path(@order)
 \|

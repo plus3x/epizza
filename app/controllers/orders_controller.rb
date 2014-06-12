@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new pizzas: [Pizza.new(id: 1)]
+    @order = Order.new pizzas: [Pizza.new(num: 1)]
   end
 
   # GET /orders/1/edit
@@ -49,6 +49,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:name, :email, :phone, pizzas_attributes: [:type])
+      params.require(:order).permit(:name, :email, :phone, pizzas_attributes: [:type, :num])
     end
 end

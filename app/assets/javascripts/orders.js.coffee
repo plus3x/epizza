@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# Add nested before refactoring
+# Function 'add_nested' before refactoring
 # @add_nested = add_nested = (element)->
 #   $('.' + element + ':last')
 #     .clone()
