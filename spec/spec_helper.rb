@@ -18,6 +18,9 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Capybara::DSL, type: :views
+
+  config.raise_errors_for_deprecations!
 
   # ## Mock Framework
   #
