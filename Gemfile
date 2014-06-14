@@ -27,7 +27,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.0.0.rc1'
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'rspec-activemodel-mocks'
 end
 
